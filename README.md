@@ -1,9 +1,9 @@
 <div align="center">
 
-# Longjie Li
+# 李龙杰
 
-AI Algorithm & Application Developer  
-Agentic RAG / Graph RAG / Knowledge Graph / NLP / Time Series Forecasting
+AI 算法与应用开发<br>
+Agent / RAG / Graph RAG / NLP / 时序预测
 
 [![Email](https://img.shields.io/badge/Email-longjieli0922%40gmail.com-0A66C2?style=flat-square)](mailto:longjieli0922@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-li--longjie-181717?style=flat-square&logo=github)](https://github.com/li-longjie)
@@ -11,104 +11,53 @@ Agentic RAG / Graph RAG / Knowledge Graph / NLP / Time Series Forecasting
 
 </div>
 
-## About
+## 关于我
 
-I focus on building AI systems that connect models, retrieval, tools and real-world workflows. My recent work is centered on Agent applications, RAG / Graph RAG, knowledge graph construction, NLP information extraction, model service integration and AI infrastructure.
+关注大模型应用开发与算法工程落地，主要方向包括 Agent 编排、RAG / Graph RAG、知识图谱、NLP 信息抽取、模型服务化和 AI Infra。
 
-Currently, I am working on intelligent analysis and large-model application systems, including NLP extraction, knowledge graph construction, RAG question answering, Agent tool calling and model/retrieval service deployment.
+相比单纯调用模型，我更关注如何把模型、检索、工具、记忆和业务流程组织成一个可用、可解释、可迭代的系统。
 
-## Current Focus
+## 技术方向
 
-- Agent systems: task planning, intent routing, tool calling, multi-step reasoning, fallback handling, streaming responses, short-term and long-term memory.
-- RAG and Graph RAG: hybrid retrieval, metadata filtering, reranking, evidence-chain generation, entity-event graph reasoning.
-- Knowledge graph and NLP: entity extraction, relation extraction, event extraction, triple extraction, event-chain construction and structured generation.
-- AI application infrastructure: model serving, API orchestration, vector databases, experiment tracking and deployment workflows.
-- Time series forecasting: hydrological forecasting models, covariate modeling, multi-step prediction and analysis-agent integration.
+- **Agent 应用开发**：意图识别、任务拆解、工具调用、多步推理、异常回退、流式响应、长短期记忆。
+- **RAG / Graph RAG**：向量检索、Hybrid Search、metadata filter、rerank、Neo4j 图谱查询、证据链生成。
+- **知识图谱与 NLP**：实体抽取、关系抽取、事件抽取、三元组抽取、事件链构建、结构化生成。
+- **模型与工程部署**：PyTorch、Hugging Face、LoRA / PEFT、FastAPI、Flask、Docker、vLLM、SGLang。
+- **AI Infra 与实验管理**：模型服务接入、算法接口封装、WandB / MLflow 实验追踪、训练评估流程。
 
-## Featured Projects
+## 代表项目
 
-### AI Watch Dog: Multimodal Activity Log Agentic RAG System
+### AI Watch Dog：多模态活动日志 Agentic RAG 系统
 
-[Repository](https://github.com/li-longjie/AI_Watch_Dog) | [Bilibili Demo](https://www.bilibili.com/video/BV187EE6JEy5/)
+[GitHub](https://github.com/li-longjie/AI_Watch_Dog) | [演示视频](https://www.bilibili.com/video/BV187EE6JEy5/)
 
-Built a multimodal Agent assistant for personal activity logs. The system collects video scenes, desktop activity, screen OCR, window titles, browser URLs, application usage and voice input, then supports natural-language search, activity summarization, tool calling and voice Q&A.
+面向个人活动日志的多模态 Agent 与 RAG 检索系统，整合视频画面、桌面活动、屏幕 OCR、窗口标题、浏览 URL、应用使用时长和语音输入，支持通过自然语言查询历史行为、生成活动总结并调用外部工具。
 
-Key points:
+- 构建 Hybrid RAG 检索链路，融合关键词检索、向量召回、时间/应用/URL 等 metadata filter 与 rerank。
+- 自研轻量级 Agent 编排，将意图识别、检索路由、工具选择、工具执行、答案生成和异常回退模块化。
+- 接入 MCP / Tools 能力，并结合 Faster-Whisper + TTS 实现语音问答链路。
 
-- Built a Hybrid RAG retrieval pipeline over multimodal activity logs, combining sparse keyword matching, dense embeddings, time/application/URL/event metadata filters and reranking.
-- Designed a multi-source indexing pipeline for video analysis results, OCR text, window titles, URLs, mouse events and application usage records.
-- Implemented lightweight Agent orchestration with intent recognition, retrieval routing, tool selection, tool execution, answer generation and fallback handling.
-- Integrated MCP-style tools for web search, browser automation, file-system access and time queries; connected Faster-Whisper and TTS for voice interaction.
-- Awarded Northeast First Prize and National Third Prize in the China Collegiate Computing Contest Network Technology Challenge.
+### 多源事件知识图谱与行为辨识推理系统
 
-### Multi-source Event Knowledge Graph and Behavior Reasoning System
+面向复杂事件分析场景，构建 Graph RAG 行为辨识服务，打通 ES 文本检索、Neo4j 图谱查询与时空特征计算，实现多源证据增强推理。
 
-Built a Graph RAG-style reasoning service for complex event analysis. The system connects text retrieval, graph query and spatiotemporal computation to support evidence-driven behavior reasoning.
+- 将文本中的实体、关系、事件结构化为三元组并写入 Neo4j，支撑历史事件追溯和关系路径查询。
+- 结合文本证据、图谱路径、时间地点和轨迹特征，输出可解释的行为判断证据链。
 
-Key points:
+### 事件链构建与重点目标动向跟踪智能分析系统
 
-- Constructed a knowledge graph from structured data, news text, historical events and object relationships.
-- Built an NLP extraction pipeline that converts entities, relations and events into triples and writes them into Neo4j.
-- Combined Elasticsearch retrieval, Neo4j path query and spatiotemporal feature calculation for hybrid evidence recall.
-- Extracted trajectory distance, activity range, speed/direction change and continuous time-window features to support rule-based reasoning and explainable outputs.
+面向新闻与事件数据，构建事件抽取、增量归链、目标动向跟踪、事件预测和报告生成流程。
 
-### Event Chain Construction and Target Movement Analysis System
+- 基于 Qdrant 与 Qwen Embedding 设计事件链增量归并链路，通过 TopK、阈值和时间窗口完成事件自动归类。
+- 对未匹配事件构建 pending 池，结合向量聚类与时间跨度切分生成新事件链，并流式生成结构化分析报告。
 
-Built an intelligent analysis service for news and event data, covering event extraction, incremental event-chain merging, target movement tracking, event prediction and report generation.
+### 水文时序预测与 Agent 智能分析系统
 
-Key points:
+面向河湖水位预测与风险分析场景，将水位预测模型接入自然语言 Agent，支持用户查询水位趋势、风险等级、历史对比和预测依据。
 
-- Designed an incremental event-chain merging pipeline with Qdrant, Qwen Embedding, TopK retrieval, threshold filtering and time-window constraints.
-- Built a pending-event pool for unmatched events and used vector clustering plus time-span splitting to form new event chains.
-- Extracted event names, time, location, entities, risk levels and target movement timelines from text.
-- Generated structured analysis reports with streaming output for long-running analysis tasks.
+- 训练实现多步水位预测模型，融合历史水位、历史协变量和已知未来协变量，降低噪声协变量带来的过拟合风险。
+- 将预测、历史查询、协变量检索、风险阈值判断、图表生成和报告输出封装为 Tools / Skills，支持 Agent 动态编排调用。
 
-### Hydrological Time Series Forecasting and Agent Analysis System
+## 常用技术栈
 
-Designed a forecasting model and an Agent-oriented analysis workflow for river and lake water-level forecasting, risk warning and report generation.
-
-Key points:
-
-- Implemented a water-level forecasting model that combines historical targets, historical covariates and known future covariates for multi-step prediction.
-- Modeled exogenous variables as controlled residual calibration over a target-centered baseline to reduce overfitting from noisy or redundant covariates.
-- Designed a natural-language hydrological analysis Agent that routes user questions to forecasting, history query, covariate retrieval, risk-threshold judgment, chart generation and report tools.
-- Built the training and evaluation framework with multiple losses, early stopping, gradient clipping, ablation studies and baseline comparison; completed model implementation, dataset construction and manuscript preparation within about two months.
-
-## Tech Stack
-
-**Languages and Engineering**
-
-Python, SQL, C, Linux, Git, Docker, Docker Compose, FastAPI, Flask, RESTful API, OpenAPI
-
-**LLM Applications**
-
-LangChain, LangGraph, RAG, Graph RAG, MCP, Skills, Agent orchestration, tool calling, long-term memory, short-term memory
-
-**Retrieval and Knowledge Graph**
-
-Qdrant, ChromaDB, Elasticsearch, Neo4j, PostGIS, BM25, embedding retrieval, metadata filtering, rerank, evidence-chain construction
-
-**NLP and Model Training**
-
-PyTorch, Hugging Face, BERT, Qwen, LLaMA-Factory, LoRA / PEFT, entity extraction, relation extraction, event extraction, triple extraction
-
-**AI Infrastructure**
-
-vLLM, SGLang, New API, WandB, MLflow, DeepSpeed basics, Kubernetes basics
-
-## Education and Experience
-
-- M.Eng. in Information and Communication Engineering, Liaoning Technical University, 2024 - 2027.
-- B.Eng. in Software Engineering, Jilin Normal University, 2019 - 2023.
-- Algorithm Engineer / Research Intern, Institute of Automation, Chinese Academy of Sciences, 2025 - present.
-
-## Awards and Publications
-
-- China Collegiate Computing Contest Network Technology Challenge: Northeast First Prize, National Third Prize.
-- Two Agent-related software copyrights.
-- One Agent-related EI conference paper and one SCI Q1 manuscript under review.
-
-## What I Like Building
-
-I enjoy turning model capabilities into usable systems: retrieval pipelines that can be inspected, Agent workflows that can recover from failure, knowledge graphs that make reasoning traceable, and model services that can actually be called by users through natural language.
-
+`Python` `PyTorch` `Hugging Face` `FastAPI` `Flask` `Docker` `LangChain` `LangGraph` `RAG` `Graph RAG` `MCP` `Qdrant` `ChromaDB` `Neo4j` `Elasticsearch` `PostGIS` `vLLM` `SGLang`
